@@ -1,0 +1,16 @@
+### Login request
+POST {{url}}/api/login
+Content-Type: application/json
+
+{
+  "email": "admin@local.com",
+  "password": "password"
+}
+
+> {%
+    client.global.set("token", response.body.access_token)
+%}
+
+### Example of using the saved token
+GET {{url}}/api/v1/home
+Authorization: Bearer {{token}}
