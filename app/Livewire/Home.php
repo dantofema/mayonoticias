@@ -7,6 +7,7 @@ use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
 use Livewire\Component;
+use Log;
 
 class Home extends Component
 {
@@ -29,21 +30,14 @@ class Home extends Component
      */
     private function getData(): array
     {
-        $http = Http::post('http://blog.local/api/login', [
-            'email' => 'admin@local.com',
-            'password' => 'password'
-        ]);
+
+        $url = config('services.isofaria.url').'/api/v1/home';
+
+        $http = Http::withToken(config('services.isofaria.token'))
+            ->get($url);
 
         if ($http->failed()) {
-            throw new Exception('Failed to login');
-        }
-
-        $token = $http->json()['access_token'];
-
-        $http = Http::withToken($token)
-            ->get('http://blog.local/api/v1/home');
-
-        if ($http->failed()) {
+            Log::error('Body --> ' . $http->body());
             throw new Exception('Failed to get posts');
         }
 
@@ -54,6 +48,7 @@ class Home extends Component
             'navLinks' => $this->navLinks(),
             'featuredPosts' => $http->json()['posts'],
             'posts' => $http->json()['posts'],
+
         ];
     }
 
@@ -63,7 +58,7 @@ class Home extends Component
             [
                 'name' => 'Inicio',
                 'href' => '#',
-                'current' => true,
+                'current' => true,'slug'=>'#',
             ],
             [
                 'name' => 'Política',
@@ -92,90 +87,90 @@ class Home extends Component
     {
         return [
             [
-                'id' => 1,
+                'id' => 1,'image' => 1,'slug'=>'#',
                 'title' => 'Lorem ipsum dolor sit amet',
-                'excerpt' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'date' => 'Mar 16, 2020',
+                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'category'=>'Hola','date' => 'Mar 16, 2020',
                 'datetime' => '2020-03-16',
                 'author' => [
-                    'name' => 'Alex John',
+                    'name' => 'Alex John','slug'=>'#',
                     'avatar' => 'https://randomuser.me/api/port'
                 ],
             ],
             [
-                'id' => 1,
+                'id' => 1,'image' => 1,'slug'=>'#',
                 'title' => 'Lorem ipsum dolor sit amet',
-                'excerpt' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'date' => 'Mar 16, 2020',
+                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'category'=>'Hola','date' => 'Mar 16, 2020',
                 'datetime' => '2020-03-16',
                 'author' => [
-                    'name' => 'Alex John',
+                    'name' => 'Alex John','slug'=>'#',
                     'avatar' => 'https://randomuser.me/api/port'
                 ],
             ],
             [
-                'id' => 1,
+                'id' => 1,'image' => 1,'slug'=>'#',
                 'title' => 'Lorem ipsum dolor sit amet',
-                'excerpt' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'date' => 'Mar 16, 2020',
+                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'category'=>'Hola','date' => 'Mar 16, 2020',
                 'datetime' => '2020-03-16',
                 'author' => [
-                    'name' => 'Alex John',
+                    'name' => 'Alex John','slug'=>'#',
                     'avatar' => 'https://randomuser.me/api/port'
                 ],
             ],
             [
-                'id' => 1,
+                'id' => 1,'image' => 1,'slug'=>'#',
                 'title' => 'Lorem ipsum dolor sit amet',
-                'excerpt' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'date' => 'Mar 16, 2020',
+                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'category'=>'Hola','date' => 'Mar 16, 2020',
                 'datetime' => '2020-03-16',
                 'author' => [
-                    'name' => 'Alex John',
+                    'name' => 'Alex John','slug'=>'#',
                     'avatar' => 'https://randomuser.me/api/port'
                 ],
             ],
             [
-                'id' => 1,
+                'id' => 1,'image' => 1,'slug'=>'#',
                 'title' => 'Lorem ipsum dolor sit amet',
-                'excerpt' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'date' => 'Mar 16, 2020',
+                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'category'=>'Hola','date' => 'Mar 16, 2020',
                 'datetime' => '2020-03-16',
                 'author' => [
-                    'name' => 'Alex John',
+                    'name' => 'Alex John','slug'=>'#',
                     'avatar' => 'https://randomuser.me/api/port'
                 ],
             ],
             [
-                'id' => 1,
+                'id' => 1,'image' => 1,'slug'=>'#',
                 'title' => 'Lorem ipsum dolor sit amet',
-                'excerpt' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'date' => 'Mar 16, 2020',
+                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'category'=>'Hola','date' => 'Mar 16, 2020',
                 'datetime' => '2020-03-16',
                 'author' => [
-                    'name' => 'Alex John',
+                    'name' => 'Alex John','slug'=>'#',
                     'avatar' => 'https://randomuser.me/api/port'
                 ],
             ],
             [
-                'id' => 1,
+                'id' => 1,'image' => 1,'slug'=>'#',
                 'title' => 'Lorem ipsum dolor sit amet',
-                'excerpt' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'date' => 'Mar 16, 2020',
+                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'category'=>'Hola','date' => 'Mar 16, 2020',
                 'datetime' => '2020-03-16',
                 'author' => [
-                    'name' => 'Alex John',
+                    'name' => 'Alex John','slug'=>'#',
                     'avatar' => 'https://randomuser.me/api/port'
                 ],
             ],
             [
-                'id' => 1,
+                'id' => 1,'image' => 1,'slug'=>'#',
                 'title' => 'Lorem ipsum dolor sit amet',
-                'excerpt' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'date' => 'Mar 16, 2020',
+                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'category'=>'Hola','date' => 'Mar 16, 2020',
                 'datetime' => '2020-03-16',
                 'author' => [
-                    'name' => 'Alex John',
+                    'name' => 'Alex John','slug'=>'#',
                     'avatar' => 'https://randomuser.me/api/port'
                 ],
             ],
@@ -187,35 +182,35 @@ class Home extends Component
     {
         return [
             [
-                'id' => 1,
+                'id' => 1,'image' => 1,'slug'=>'#',
                 'title' => 'Lorem ipsum dolor sit amet',
-                'excerpt' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'date' => 'Mar 16, 2020',
+                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'category'=>'Hola','date' => 'Mar 16, 2020',
                 'datetime' => '2020-03-16',
                 'author' => [
-                    'name' => 'Alex John',
+                    'name' => 'Alex John','slug'=>'#',
                     'avatar' => 'https://randomuser.me/api/port'
                 ],
             ],
             [
-                'id' => 1,
+                'id' => 1,'image' => 1,'slug'=>'#',
                 'title' => 'Lorem ipsum dolor sit amet',
-                'excerpt' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'date' => 'Mar 16, 2020',
+                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'category'=>'Hola','date' => 'Mar 16, 2020',
                 'datetime' => '2020-03-16',
                 'author' => [
-                    'name' => 'Alex John',
+                    'name' => 'Alex John','slug'=>'#',
                     'avatar' => 'https://randomuser.me/api/port'
                 ],
             ],
             [
-                'id' => 1,
+                'id' => 1,'image' => 1,'slug'=>'#',
                 'title' => 'Lorem ipsum dolor sit amet',
-                'excerpt' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'date' => 'Mar 16, 2020',
+                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'category'=>'Hola','date' => 'Mar 16, 2020',
                 'datetime' => '2020-03-16',
                 'author' => [
-                    'name' => 'Alex John',
+                    'name' => 'Alex John','slug'=>'#',
                     'avatar' => 'https://randomuser.me/api/port'
                 ],
             ],

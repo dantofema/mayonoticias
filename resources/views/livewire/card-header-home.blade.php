@@ -1,10 +1,10 @@
 <div class="max-w-screen-xl mx-auto p-5">
     <div class="rounded overflow-hidden flex flex-col max-w-xl mx-auto">
-        <a href="{{ route('post.show', $post->slug) }}">
+{{--        <a href="{{ route('post.show', $post->slug) }}">--}}
             <img class="w-full transition-all duration-500 hover:scale-110"
                  src="{{ $post->image }}"
                  alt="{{ $post->title }}">
-        </a>
+{{--        </a>--}}
         <div class="relative -mt-24 px-10 pt-5 pb-5 bg-white m-10">
             <a href="{{ route('post.show', $post->slug) }}"
                class="font-semibold text-lg inline-block

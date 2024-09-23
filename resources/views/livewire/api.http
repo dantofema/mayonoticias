@@ -14,3 +14,8 @@ Content-Type: application/json
 ### Example of using the saved token
 GET {{url}}/api/v1/home
 Authorization: Bearer {{token}}
+
+### Logout request
+GET {{url}}/api/v1/home
+Authorization: Bearer 1|X7JtYTwCx5HI9LOwbFLRfccLZHkbnkp5gUcorsqe8581f51e
+Content-Type: application/json

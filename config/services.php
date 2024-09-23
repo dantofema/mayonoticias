@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'isofaria'=>[
+        'url' => env('ISOFARIA_URL'),
+        'token' => env('ISOFARIA_TOKEN'),
+    ],
 
     /*
     |--------------------------------------------------------------------------
