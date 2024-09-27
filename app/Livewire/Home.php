@@ -51,7 +51,7 @@ class Home extends Component
 
         if ($http->failed()) {
             Log::error('Body --> '.$http->body());
-            throw new Exception('Failed to get posts');
+            abort(500, 'Error');
         }
 
         return [
@@ -95,6 +95,6 @@ class Home extends Component
             ],
         ];
     }
-    
+
 
 }
