@@ -31,13 +31,26 @@ class Home extends Component
     private function getData(): array
     {
 
-        $url = config('services.isofaria.url').'/api/v1/home';
+        $credentials = [
+            'email' => "demo@dantofema.ar",
+            'password' => "demo",
+        ];
 
-        $http = Http::withToken(config('services.isofaria.token'))
-            ->get($url);
+        $loginUrl = config('services.isofaria.url').'/api/login';
+
+        $login = Http::post($loginUrl, $credentials);
+
+        if ($login->successful()) {
+            $token = $login->json()['access_token'];
+        } else {
+            abort(403, 'Unauthorized');
+        }
+
+        $http = Http::withToken($token)
+            ->get(config('services.isofaria.url').'/api/v1/home');
 
         if ($http->failed()) {
-            Log::error('Body --> ' . $http->body());
+            Log::error('Body --> '.$http->body());
             throw new Exception('Failed to get posts');
         }
 
@@ -58,7 +71,7 @@ class Home extends Component
             [
                 'name' => 'Inicio',
                 'href' => '#',
-                'current' => true,'slug'=>'#',
+                'current' => true, 'slug' => '#',
             ],
             [
                 'name' => 'Política',
@@ -82,139 +95,6 @@ class Home extends Component
             ],
         ];
     }
-
-    private function posts(): array
-    {
-        return [
-            [
-                'id' => 1,'image' => 1,'slug'=>'#',
-                'title' => 'Lorem ipsum dolor sit amet',
-                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'category'=>'Hola','date' => 'Mar 16, 2020',
-                'datetime' => '2020-03-16',
-                'author' => [
-                    'name' => 'Alex John','slug'=>'#',
-                    'avatar' => 'https://randomuser.me/api/port'
-                ],
-            ],
-            [
-                'id' => 1,'image' => 1,'slug'=>'#',
-                'title' => 'Lorem ipsum dolor sit amet',
-                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'category'=>'Hola','date' => 'Mar 16, 2020',
-                'datetime' => '2020-03-16',
-                'author' => [
-                    'name' => 'Alex John','slug'=>'#',
-                    'avatar' => 'https://randomuser.me/api/port'
-                ],
-            ],
-            [
-                'id' => 1,'image' => 1,'slug'=>'#',
-                'title' => 'Lorem ipsum dolor sit amet',
-                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'category'=>'Hola','date' => 'Mar 16, 2020',
-                'datetime' => '2020-03-16',
-                'author' => [
-                    'name' => 'Alex John','slug'=>'#',
-                    'avatar' => 'https://randomuser.me/api/port'
-                ],
-            ],
-            [
-                'id' => 1,'image' => 1,'slug'=>'#',
-                'title' => 'Lorem ipsum dolor sit amet',
-                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'category'=>'Hola','date' => 'Mar 16, 2020',
-                'datetime' => '2020-03-16',
-                'author' => [
-                    'name' => 'Alex John','slug'=>'#',
-                    'avatar' => 'https://randomuser.me/api/port'
-                ],
-            ],
-            [
-                'id' => 1,'image' => 1,'slug'=>'#',
-                'title' => 'Lorem ipsum dolor sit amet',
-                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'category'=>'Hola','date' => 'Mar 16, 2020',
-                'datetime' => '2020-03-16',
-                'author' => [
-                    'name' => 'Alex John','slug'=>'#',
-                    'avatar' => 'https://randomuser.me/api/port'
-                ],
-            ],
-            [
-                'id' => 1,'image' => 1,'slug'=>'#',
-                'title' => 'Lorem ipsum dolor sit amet',
-                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'category'=>'Hola','date' => 'Mar 16, 2020',
-                'datetime' => '2020-03-16',
-                'author' => [
-                    'name' => 'Alex John','slug'=>'#',
-                    'avatar' => 'https://randomuser.me/api/port'
-                ],
-            ],
-            [
-                'id' => 1,'image' => 1,'slug'=>'#',
-                'title' => 'Lorem ipsum dolor sit amet',
-                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'category'=>'Hola','date' => 'Mar 16, 2020',
-                'datetime' => '2020-03-16',
-                'author' => [
-                    'name' => 'Alex John','slug'=>'#',
-                    'avatar' => 'https://randomuser.me/api/port'
-                ],
-            ],
-            [
-                'id' => 1,'image' => 1,'slug'=>'#',
-                'title' => 'Lorem ipsum dolor sit amet',
-                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'category'=>'Hola','date' => 'Mar 16, 2020',
-                'datetime' => '2020-03-16',
-                'author' => [
-                    'name' => 'Alex John','slug'=>'#',
-                    'avatar' => 'https://randomuser.me/api/port'
-                ],
-            ],
-
-        ];
-    }
-
-    private function geaturedPosts(): array
-    {
-        return [
-            [
-                'id' => 1,'image' => 1,'slug'=>'#',
-                'title' => 'Lorem ipsum dolor sit amet',
-                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'category'=>'Hola','date' => 'Mar 16, 2020',
-                'datetime' => '2020-03-16',
-                'author' => [
-                    'name' => 'Alex John','slug'=>'#',
-                    'avatar' => 'https://randomuser.me/api/port'
-                ],
-            ],
-            [
-                'id' => 1,'image' => 1,'slug'=>'#',
-                'title' => 'Lorem ipsum dolor sit amet',
-                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'category'=>'Hola','date' => 'Mar 16, 2020',
-                'datetime' => '2020-03-16',
-                'author' => [
-                    'name' => 'Alex John','slug'=>'#',
-                    'avatar' => 'https://randomuser.me/api/port'
-                ],
-            ],
-            [
-                'id' => 1,'image' => 1,'slug'=>'#',
-                'title' => 'Lorem ipsum dolor sit amet',
-                'content' => 'Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                'category'=>'Hola','date' => 'Mar 16, 2020',
-                'datetime' => '2020-03-16',
-                'author' => [
-                    'name' => 'Alex John','slug'=>'#',
-                    'avatar' => 'https://randomuser.me/api/port'
-                ],
-            ],
-        ];
-    }
+    
 
 }

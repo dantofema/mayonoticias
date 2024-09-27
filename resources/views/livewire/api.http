@@ -3,8 +3,8 @@ POST {{url}}/api/login
 Content-Type: application/json
 
 {
-  "email": "admin@local.com",
-  "password": "password"
+  "email": "demo@dantofema.ar",
+  "password": "demo"
 }
 
 > {%
@@ -17,5 +17,5 @@ Authorization: Bearer {{token}}
 
 ### Logout request
 GET {{url}}/api/v1/home
-Authorization: Bearer 1|X7JtYTwCx5HI9LOwbFLRfccLZHkbnkp5gUcorsqe8581f51e
+Authorization: Bearer {{token}}
 Content-Type: application/json
