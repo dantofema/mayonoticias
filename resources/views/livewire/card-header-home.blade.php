@@ -1,7 +1,7 @@
 <div class="max-w-screen-xl mx-auto p-5">
     <div class="rounded overflow-hidden flex flex-col max-w-xl mx-auto">
         {{--        <a href="{{ route('post.show', $post->slug) }}">--}}
-        <img class="w-full h-64 object-cover transition-all duration-500
+        <img class="w-full h-96 object-cover transition-all duration-500
         hover:scale-110"
              src="{{ $post->image }}"
              alt="{{ $post->title }}">
