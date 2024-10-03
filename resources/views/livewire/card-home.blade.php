@@ -1,7 +1,7 @@
 <div class="max-w-screen-xl mx-auto p-5">
     <div class="rounded overflow-hidden flex flex-col max-w-xl mx-auto">
         <a href="{{ route('post.show', $post->slug) }}">
-            <img class="w-full duration-500 hover:scale-110"
+            <img class="w-full h-48 object-cover duration-500 hover:scale-110"
                  src="{{ $post->image }}"
                  alt="{{ $post->title }}">
         </a>
@@ -11,7 +11,7 @@
                hover:text-indigo-600 transition duration-500 ease-in-out
                mb-2">{{ $post->title }}</a>
             <p class="text-gray-500 text-sm">
-                {{ Str::limit($post->content) }}
+                {!! Str::limit($post->content) !!}
             </p>
             <p class="mt-5 text-gray-600 text-xs">
                 @if($post->author)
