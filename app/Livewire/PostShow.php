@@ -16,7 +16,6 @@ class PostShow extends Component
     public function mount(string $slug): void
     {
         $this->slug = $slug;
-
     }
 
 
@@ -27,16 +26,18 @@ class PostShow extends Component
             'production' => $this->productionData(),
             default => null,
         };
+        $apiData = $this->productionData();
+        $navService = new NavService();
 
-        $links = new NavService();
+        $post = json_decode(json_encode($apiData['post']));
 
         $data = [
-            'title' => $apiData['post']->title,
-            'companyName' => 'Mayo Noticias',
-            'companyLogo' => 'https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600',
-            'loginLink' => $links->loginLink(),
-            'navLinks' => $links->navLinks(),
-            'post' => (object) $apiData['post'],
+            'title' => $post->title,
+            'companyName' => $navService->companyName(),
+            'companyLogo' => $navService->logoLink(),
+            'loginLink' => $navService->loginLink(),
+            'navLinks' => $navService->navLinks(),
+            'post' => $post,
         ];
 
         return view('livewire.post-show', $data)

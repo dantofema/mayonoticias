@@ -45,7 +45,7 @@
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <a href="{{ $loginLink }}"
-               class="text-sm font-semibold leading-6 text-neutral">
+               class="text-sm font-semibold leading-6 text-base-300">
                 Ingresar
                 <span aria-hidden="true">&rarr;</span></a>
         </div>
