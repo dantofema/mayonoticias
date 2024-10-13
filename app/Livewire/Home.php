@@ -2,8 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Services\NavLinks;
 use Exception;
-use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -11,41 +11,35 @@ use Log;
 
 class Home extends Component
 {
+
     /**
-     * @throws ConnectionException
      * @throws Exception
      */
     public function render(): View
     {
-        $data = $this->getData();
-        return view('livewire.home', $data)
-            ->layout('components.layouts.app', $data);
-
-    }
-
-    /**
-     * @throws Exception
-     */
-    private function getData(): array
-    {
-        $data = match (config('app.env')) {
+        $apiData = match (config('app.env')) {
             'local' => $this->localData(),
             'production' => $this->productionData(),
             default => null,
         };
 
-//        $data = $this->productionData();
+        $links = new NavLinks();
 
-        return [
+        $data = [
+            'title' => 'Mayo Noticias',
             'companyName' => 'Mayo Noticias',
-            'companyLogo' => 'https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600',
-            'loginLink' => '#',
-            'navLinks' => $this->navLinks(),
-            'featuredPosts' => $data['posts'],
-            'posts' => $data['posts'],
-
+            'companyLogo' => 'https://dantofema.ar/images/marca-dantofema-1.png',
+            'loginLink' => $links->loginLink(),
+            'navLinks' => $links->navLinks(),
+            'featuredPosts' => $apiData['posts'],
+            'posts' => $apiData['posts'],
         ];
+
+        return view('livewire.home', $data)
+            ->layout('components.layouts.app', $data);
+
     }
+
 
     private function localData(): array
     {
@@ -80,37 +74,5 @@ class Home extends Component
 
         return $http->json();
     }
-
-    private function navLinks(): array
-    {
-        return [
-            [
-                'name' => 'Inicio',
-                'href' => '#',
-                'current' => true, 'slug' => '#',
-            ],
-            [
-                'name' => 'Política',
-                'href' => '#',
-                'current' => false,
-            ],
-            [
-                'name' => 'Economía',
-                'href' => '#',
-                'current' => false,
-            ],
-            [
-                'name' => 'Educación',
-                'href' => '#',
-                'current' => false,
-            ],
-            [
-                'name' => 'Contacto',
-                'href' => '#',
-                'current' => false,
-            ],
-        ];
-    }
-
 
 }

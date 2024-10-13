@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Services\NavLinks;
 use Exception;
 use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
@@ -21,23 +22,21 @@ class Posts extends Component
             default => null,
         };
 
-//        $data = $this->productionData();
-
+        $links = new NavLinks();
         $data = [
+            'title' => 'Mayo Noticias',
             'companyName' => 'Mayo Noticias',
             'companyLogo' => 'https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600',
-            'loginLink' => '#',
-            'navLinks' => $this->navLinks(),
+            'loginLink' => $links->loginLink(),
+            'navLinks' => $links->navLinks(),
             'featuredPosts' => $apiData['posts'],
             'posts' => $apiData['posts'],
-
         ];
 
         return view('livewire.posts', $data)
             ->layout('components.layouts.app', $data);
 
     }
-
 
     private function localData(): array
     {
@@ -73,35 +72,4 @@ class Posts extends Component
         return $http->json();
     }
 
-    private function navLinks(): array
-    {
-        return [
-            [
-                'name' => 'Inicio',
-                'href' => route('home'),
-                'current' => true, 'slug' => '#',
-            ],
-            [
-                'name' => 'Política',
-                'href' => route('posts', ['categoria' => 'politica']),
-                'current' => false,
-            ],
-            [
-                'name' => 'Economía',
-                'href' => route('posts', ['categoria' => 'economia']),
-                'current' => false,
-            ],
-            [
-                'name' => 'Educación',
-                'href' => route('posts', ['categoria' => 'educacion']),
-
-                'current' => false,
-            ],
-            [
-                'name' => 'Contacto',
-                'href' => route('contact'),
-                'current' => false,
-            ],
-        ];
-    }
 }

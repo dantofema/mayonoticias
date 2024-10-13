@@ -1,5 +1,5 @@
 <div>
-    <div class="grid grid-cols-2">
+    <div class="grid grid-cols-1 lg:grid-cols-2">
         <div class="">
             <livewire:card-header-home :post="$posts[0]"
                                        :key="$posts[0]['id']"/>
@@ -11,7 +11,7 @@
 
     </div>
 
-    <div class="bg-blue-800">
+    <div class="bg-primary">
         <div class="px-6 py-24 sm:px-6 sm:py-10 lg:px-8">
             <div class="mx-auto max-w-2xl text-center">
                 <h2 class="text-3xl font-bold tracking-tight text-gray-100
@@ -24,7 +24,7 @@
                     país.</p>
                 <div class="mt-10 flex items-center justify-center gap-x-6">
                     <a href="#"
-                       class="rounded-md bg-indigo-900 px-3.5 py-2.5 text-sm
+                       class="rounded-md bg-accent px-3.5 py-2.5 text-sm
                        font-semibold text-white shadow-sm hover:bg-indigo-500
                         focus-visible:outline focus-visible:outline-2
                         focus-visible:outline-offset-2
@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-3 mt-20">
+    <div class="grid grid-cols-1 lg:grid-cols-3 mt-20">
         @foreach($posts as $post)
             <div class="">
                 <livewire:card-home :post="$post"
@@ -47,9 +47,11 @@
             </div>
         @endforeach
     </div>
+    \
 
-    <div class="relative bg-blue-900">
-        <div class="relative h-80 overflow-hidden bg-indigo-600 md:absolute md:left-0 md:h-full md:w-1/3 lg:w-1/2">
+    <div class="relative bg-primary">
+        <div class="relative h-80 overflow-hidden bg-primary md:absolute md:left-0
+        md:h-full md:w-1/3 lg:w-1/2">
             <img class="h-full w-full object-cover"
                  src="{{ asset('img/periodismo-digital.jpg') }}"
                  alt="">

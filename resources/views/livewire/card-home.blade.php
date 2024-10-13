@@ -5,7 +5,8 @@
                  src="{{ $post->image }}"
                  alt="{{ $post->title }}">
         </a>
-        <div class="relative -mt-24 px-10 pt-5 pb-5 bg-white m-10">
+        <div class="relative -mt-24 px-10 pt-5 pb-5 bg-white m-2 lg-m-10
+        rounded">
             <a href="{{ route('post.show', $post->slug) }}"
                class="font-semibold text-lg inline-block
                hover:text-indigo-600 transition duration-500 ease-in-out

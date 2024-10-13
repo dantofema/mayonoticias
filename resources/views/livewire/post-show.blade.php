@@ -1,5 +1,5 @@
 <div>
-    <div class="max-w-screen-xl mx-auto p-5">
+    <div class="max-w-screen-xl mx-auto p-2 lg:p-5">
         <div class="rounded overflow-hidden flex flex-col mx-auto">
             <a href="{{ route('post.show', $post->slug) }}">
                 <img class="w-full max-h-128 object-cover rounded"
@@ -7,8 +7,8 @@
                      alt="{{ $post->title }}">
             </a>
 
-            <article class="prose-2xl relative -mt-24 px-10 pt-5 pb-5 bg-white
-            m-10 rounded">
+            <article class="prose-lg lg:prose-2xl relative -mt-12 lg:-mt-24 p-2
+            lg:p-10 lg:py-5 py-2 bg-base-100 mx-2 lg:mx-8 rounded">
                 <h1>{{ $post->title }}</h1>
                 <p class="mt-5 text-gray-600 text-xs">
                     @if($post->author)

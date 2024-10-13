@@ -1,4 +1,6 @@
-<header class="bg-indigo-600">
+<header
+        x-data="{ open: false }"
+        class="bg-primary">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
          aria-label="Global">
         <div class="flex lg:flex-1">
@@ -6,13 +8,21 @@
                class="-m-1.5 p-1.5">
                 <span class="sr-only">{{ $companyName }}</span>
                 <img class="h-8 w-auto"
-                     src="https://tailwindui.com/img/logos/mark.svg?color=white"
+                     src="{{ $companyLogo }}"
                      alt="">
             </a>
         </div>
         <div class="flex lg:hidden">
-            <button type="button"
-                    class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-indigo-300">
+            <button x-on:click="open = !open"
+                    x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition ease-in duration-150"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    type="button"
+                    class="-m-2.5 inline-flex items-center justify-center
+                    rounded-md p-2.5 text-base-100">
                 <span class="sr-only">Open main menu</span>
                 <svg class="h-6 w-6"
                      fill="none"
@@ -35,26 +45,35 @@
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <a href="{{ $loginLink }}"
-               class="text-sm font-semibold leading-6 text-gray-400">Ingresar
+               class="text-sm font-semibold leading-6 text-gray-400">
+                Ingresar
                 <span aria-hidden="true">&rarr;</span></a>
         </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
-    <div class="lg:hidden"
+    <div x-show="open"
+         class="lg:hidden"
          role="dialog"
          aria-modal="true">
         <!-- Background backdrop, show/hide based on slide-over state. -->
         <div class="fixed inset-0 z-10"></div>
         <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div class="flex items-center justify-between">
-                <a href="#"
+                <a href="{{ route('home') }}"
                    class="-m-1.5 p-1.5">
                     <span class="sr-only">{{ $companyName }}</span>
                     <img class="h-8 w-auto"
-                         src=""{{ $companyLogo }}"
-                    alt="{{ $companyName }}">
+                         src="{{ $companyLogo }}"
+                         alt="{{ $companyName }}"/>
                 </a>
-                <button type="button"
+                <button x-on:click="open = !open"
+                        x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0"
+                        x-transition:enter-end="opacity-100"
+                        x-transition:leave="transition ease-in duration-150"
+                        x-transition:leave-start="opacity-100"
+                        x-transition:leave-end="opacity-0"
+                        type="button"
                         class="-m-2.5 rounded-md p-2.5 text-gray-700">
                     <span class="sr-only">Close menu</span>
                     <svg class="h-6 w-6"
