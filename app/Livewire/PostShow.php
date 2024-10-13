@@ -26,7 +26,7 @@ class PostShow extends Component
             'production' => $this->productionData(),
             default => null,
         };
-        $apiData = $this->productionData();
+        
         $navService = new NavService();
 
         $post = json_decode(json_encode($apiData['post']));

@@ -24,6 +24,7 @@ class Posts extends Component
         };
 
         $navService = new NavService();
+        $posts = json_decode(json_encode($apiData['posts']));
 
         $data = [
             'title' => 'Mayo Noticias',
@@ -31,8 +32,8 @@ class Posts extends Component
             'companyLogo' => $navService->logoLink(),
             'loginLink' => $navService->loginLink(),
             'navLinks' => $navService->navLinks(),
-            'featuredPosts' => $apiData['posts'],
-            'posts' => $apiData['posts'],
+            'featuredPosts' => $posts,
+            'posts' => $posts,
         ];
 
         return view('livewire.posts', $data)
