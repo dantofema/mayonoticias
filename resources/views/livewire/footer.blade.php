@@ -51,7 +51,7 @@
         <div class="mt-8 md:order-1 md:mt-0">
             <p class="text-center text-xs leading-5 text-neutral">&copy; 2024
                 <a href="https://dantofema.ar"
-                   class="underline text-blue-600">dantofema</a>, todos los
+                   class="underline text-blue-600">dantofema</a> - Todos los
                 derechos
                 reservados.</p>
         </div>
