@@ -1,19 +1,19 @@
 <?php
 
+use App\Livewire\Contact;
 use App\Livewire\Home;
+use App\Livewire\Posts;
+use App\Livewire\PostShow;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', Home::class)
     ->name('home');
 
-Route::get('/nota/{slug}', function () {
-    echo 'Hola';
-})->name('post.show');
+Route::get('/nota/{slug}', PostShow::class)
+    ->name('post.show');
 
-Route::get('/autor/{slug}', function () {
-    echo 'Hola';
-})->name('author.posts');
+Route::get('/notas', Posts::class)
+    ->name('posts');
 
-Route::get('/categoria/{slug}', function () {
-    echo 'Hola';
-})->name('category.posts');
+Route::get('/contacto', Contact::class)
+    ->name('contact');

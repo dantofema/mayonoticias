@@ -1,0 +1,336 @@
+{
+  "categories": [
+    {
+      "id": 2,
+      "name": "Deportes",
+      "slug": "deportes"
+    },
+    {
+      "id": 1,
+      "name": "Política",
+      "slug": "politica"
+    },
+    {
+      "id": 3,
+      "name": "Tecnología",
+      "slug": "tecnologia"
+    }
+  ],
+  "seo": {
+    "title": "Home",
+    "description": "Welcome to our blog",
+    "keywords": "blog, laravel, php"
+  },
+  "posts": [
+    {
+      "id": 23,
+      "title": "Veritatis assumenda vitae explicabo.",
+      "published_at": "02-10-2024",
+      "slug": "magni-aut-dolorem-sunt-ipsam-atque-id",
+      "status": "publish",
+      "image": "http:\/\/isofaria.local\/storage\/3295c621ba78afa1bc13544012a4900e.jpg",
+      "user": {
+        "id": 25,
+        "name": "Sergio Irizarry"
+      },
+      "category": {
+        "id": 2,
+        "name": "Deportes",
+        "slug": "deportes"
+      },
+      "tags": [
+        {
+          "id": 1,
+          "name": "Dr. Parker Fay Jr.",
+          "slug": "libero-adipisci-est-voluptas-magnam-dicta",
+          "pivot": {
+            "post_id": 23,
+            "tag_id": 1
+          }
+        },
+        {
+          "id": 2,
+          "name": "Jody Murray",
+          "slug": "nesciunt-ea-autem-cum-provident-recusandae-consequatur-voluptatibus",
+          "pivot": {
+            "post_id": 23,
+            "tag_id": 2
+          }
+        },
+        {
+          "id": 5,
+          "name": "Damien Corkery",
+          "slug": "labore-qui-id-dolor-odit-fuga-dolores",
+          "pivot": {
+            "post_id": 23,
+            "tag_id": 5
+          }
+        }
+      ],
+      "author": {
+        "id": 2,
+        "name": "Dr. Sylvia Terry Jr.",
+        "slug": "id-tempora-eveniet-voluptatem-sint-alias-voluptatem"
+      },
+      "created_at": "03-10-2024",
+      "content": "Esse architecto omnis velit animi similique neque. Voluptatem natus est est assumenda velit doloremque non. Praesentium nihil praesentium aliquid unde aut similique provident.\n\nAut dolor mollitia et natus ut quisquam rerum quis. Et iste magnam esse non. Iure saepe facilis ea perferendis laudantium autem dolorem est. Non porro quis et et accusamus.\n\nVoluptatem et voluptate omnis. Quasi quo consequatur culpa molestiae. Magni occaecati consequatur illo consequuntur dolores consequuntur."
+    },
+    {
+      "id": 35,
+      "title": "Exercitationem atque officia.",
+      "published_at": "02-10-2024",
+      "slug": "aperiam-laborum-facere-aperiam-illo-dolore",
+      "status": "publish",
+      "image": "http:\/\/isofaria.local\/storage\/711aa065663da4db5d04d0cf1009d9f5.jpg",
+      "user": {
+        "id": 37,
+        "name": "Rosario Delacrúz"
+      },
+      "category": {
+        "id": 2,
+        "name": "Deportes",
+        "slug": "deportes"
+      },
+      "tags": [
+        {
+          "id": 2,
+          "name": "Jody Murray",
+          "slug": "nesciunt-ea-autem-cum-provident-recusandae-consequatur-voluptatibus",
+          "pivot": {
+            "post_id": 35,
+            "tag_id": 2
+          }
+        },
+        {
+          "id": 3,
+          "name": "Miss Amie Denesik Sr.",
+          "slug": "voluptas-molestiae-dignissimos-facere-consequuntur",
+          "pivot": {
+            "post_id": 35,
+            "tag_id": 3
+          }
+        },
+        {
+          "id": 4,
+          "name": "Josiane O'Connell",
+          "slug": "aut-quia-blanditiis-aperiam-sapiente-sit-natus",
+          "pivot": {
+            "post_id": 35,
+            "tag_id": 4
+          }
+        }
+      ],
+      "author": {
+        "id": 2,
+        "name": "Dr. Sylvia Terry Jr.",
+        "slug": "id-tempora-eveniet-voluptatem-sint-alias-voluptatem"
+      },
+      "created_at": "03-10-2024",
+      "content": "Quasi laudantium eveniet aliquam facilis inventore suscipit. Veniam nesciunt ipsam facilis nam dolor. Ex soluta provident architecto illo. Culpa quo et corrupti aut ut maxime magnam.\n\nUt ipsam harum laboriosam culpa ducimus aut architecto. Repudiandae dolor non quia fuga tempora est. Eum temporibus qui cupiditate soluta facilis eligendi distinctio sed. Ut animi qui esse atque.\n\nDolorem voluptatibus aliquam expedita et molestiae. Earum iste accusamus consequuntur aliquid dignissimos blanditiis. Iusto mollitia natus vero fugit iure. Qui minus rerum incidunt dolorum doloribus."
+    },
+    {
+      "id": 29,
+      "title": "Dicta aut nesciunt sit iure.",
+      "published_at": "02-10-2024",
+      "slug": "optio-voluptatibus-reprehenderit-est-est-incidunt-ut-sint-ad",
+      "status": "publish",
+      "image": "http:\/\/isofaria.local\/storage\/e5cd428aff23fc9eb681d09d525aeb6c.jpg",
+      "user": {
+        "id": 31,
+        "name": "D. Marco Girón Segundo"
+      },
+      "category": {
+        "id": 2,
+        "name": "Deportes",
+        "slug": "deportes"
+      },
+      "tags": [
+        {
+          "id": 5,
+          "name": "Damien Corkery",
+          "slug": "labore-qui-id-dolor-odit-fuga-dolores",
+          "pivot": {
+            "post_id": 29,
+            "tag_id": 5
+          }
+        }
+      ],
+      "author": {
+        "id": 2,
+        "name": "Dr. Sylvia Terry Jr.",
+        "slug": "id-tempora-eveniet-voluptatem-sint-alias-voluptatem"
+      },
+      "created_at": "03-10-2024",
+      "content": "Non aut repudiandae et sint molestias velit aut. Occaecati sed repellat eos dolor dicta sed. Aut tempora deserunt et nisi est blanditiis eos.\n\nVoluptate sapiente sed inventore et esse velit. Consequatur consectetur vel aut at qui dolore. Excepturi animi excepturi quidem sed et autem est. Sunt ad maxime nobis.\n\nEst similique eligendi nesciunt. Fuga est ea aut voluptatem hic cumque reiciendis. Dolores repellat modi pariatur sit culpa fugit."
+    },
+    {
+      "id": 55,
+      "title": "Dolores nobis aut rem non.",
+      "published_at": "01-10-2024",
+      "slug": "non-quis-minima-mollitia-ea-est-vitae-sint",
+      "status": "publish",
+      "image": "http:\/\/isofaria.local\/storage\/3276b20c2179bea729b746bbeb1cffbe.jpg",
+      "user": {
+        "id": 57,
+        "name": "Nuria Apodaca Segundo"
+      },
+      "category": {
+        "id": 3,
+        "name": "Tecnología",
+        "slug": "tecnologia"
+      },
+      "tags": [
+        {
+          "id": 3,
+          "name": "Miss Amie Denesik Sr.",
+          "slug": "voluptas-molestiae-dignissimos-facere-consequuntur",
+          "pivot": {
+            "post_id": 55,
+            "tag_id": 3
+          }
+        },
+        {
+          "id": 4,
+          "name": "Josiane O'Connell",
+          "slug": "aut-quia-blanditiis-aperiam-sapiente-sit-natus",
+          "pivot": {
+            "post_id": 55,
+            "tag_id": 4
+          }
+        },
+        {
+          "id": 5,
+          "name": "Damien Corkery",
+          "slug": "labore-qui-id-dolor-odit-fuga-dolores",
+          "pivot": {
+            "post_id": 55,
+            "tag_id": 5
+          }
+        }
+      ],
+      "author": {
+        "id": 1,
+        "name": "Horacio Gislason",
+        "slug": "quis-quis-officia-dicta"
+      },
+      "created_at": "03-10-2024",
+      "content": "Vitae dolorem praesentium soluta explicabo. Nulla beatae quidem voluptatem ut ipsa. Et autem molestiae possimus deleniti sapiente facilis.\n\nError voluptate eveniet magnam. Nemo sequi qui ut voluptas. Dicta reprehenderit inventore eos. Quia culpa quo necessitatibus. Omnis doloremque perspiciatis minus ratione facilis.\n\nTotam aut adipisci quia magni. Rerum velit eos eum molestiae. Iusto ut ex est reiciendis. Velit impedit qui perspiciatis et."
+    },
+    {
+      "id": 43,
+      "title": "Omnis accusantium veritatis odit dicta.",
+      "published_at": "01-10-2024",
+      "slug": "et-tenetur-quis-a-rerum-fugiat",
+      "status": "publish",
+      "image": "http:\/\/isofaria.local\/storage\/7648bf000aa6286bcbe66349740c7a5a.jpg",
+      "user": {
+        "id": 45,
+        "name": "Dr. Sandra Archuleta"
+      },
+      "category": {
+        "id": 3,
+        "name": "Tecnología",
+        "slug": "tecnologia"
+      },
+      "tags": [
+        {
+          "id": 1,
+          "name": "Dr. Parker Fay Jr.",
+          "slug": "libero-adipisci-est-voluptas-magnam-dicta",
+          "pivot": {
+            "post_id": 43,
+            "tag_id": 1
+          }
+        },
+        {
+          "id": 3,
+          "name": "Miss Amie Denesik Sr.",
+          "slug": "voluptas-molestiae-dignissimos-facere-consequuntur",
+          "pivot": {
+            "post_id": 43,
+            "tag_id": 3
+          }
+        },
+        {
+          "id": 5,
+          "name": "Damien Corkery",
+          "slug": "labore-qui-id-dolor-odit-fuga-dolores",
+          "pivot": {
+            "post_id": 43,
+            "tag_id": 5
+          }
+        }
+      ],
+      "author": {
+        "id": 1,
+        "name": "Horacio Gislason",
+        "slug": "quis-quis-officia-dicta"
+      },
+      "created_at": "03-10-2024",
+      "content": "Repellat ipsa dignissimos maxime vel sunt voluptatem autem. Dolores et qui est dicta eum ut. Et aliquam rerum nostrum ut impedit.\n\nEst eum accusantium quos nulla sit in. Sunt soluta earum nam omnis qui.\n\nQuo debitis enim porro dolor esse aut. Pariatur autem velit qui. Eveniet temporibus et modi."
+    },
+    {
+      "id": 49,
+      "title": "Laborum vitae impedit veniam ipsum.",
+      "published_at": "01-10-2024",
+      "slug": "tempora-est-cum-maxime-voluptates-maiores-minus",
+      "status": "publish",
+      "image": "http:\/\/isofaria.local\/storage\/e9525c92ce023017c32a29acb80796fd.jpg",
+      "user": {
+        "id": 51,
+        "name": "Jesús Zarate"
+      },
+      "category": {
+        "id": 3,
+        "name": "Tecnología",
+        "slug": "tecnologia"
+      },
+      "tags": [
+        {
+          "id": 2,
+          "name": "Jody Murray",
+          "slug": "nesciunt-ea-autem-cum-provident-recusandae-consequatur-voluptatibus",
+          "pivot": {
+            "post_id": 49,
+            "tag_id": 2
+          }
+        },
+        {
+          "id": 4,
+          "name": "Josiane O'Connell",
+          "slug": "aut-quia-blanditiis-aperiam-sapiente-sit-natus",
+          "pivot": {
+            "post_id": 49,
+            "tag_id": 4
+          }
+        },
+        {
+          "id": 5,
+          "name": "Damien Corkery",
+          "slug": "labore-qui-id-dolor-odit-fuga-dolores",
+          "pivot": {
+            "post_id": 49,
+            "tag_id": 5
+          }
+        }
+      ],
+      "author": {
+        "id": 1,
+        "name": "Horacio Gislason",
+        "slug": "quis-quis-officia-dicta"
+      },
+      "created_at": "03-10-2024",
+      "content": "Sit vel sunt reiciendis perspiciatis id vitae. Ea aliquid voluptas nobis consectetur officia. Reiciendis et aut sit corporis tempora suscipit.\n\nAliquid voluptatum aut earum. Reprehenderit amet nobis praesentium in nostrum cumque reprehenderit.\n\nVoluptatibus reiciendis velit est. Et rerum sapiente qui qui. Quod minus repellendus pariatur expedita. Eaque ratione magni blanditiis eveniet."
+    }
+  ],
+  "meta": {
+    "current_page": 1,
+    "last_page": 5,
+    "per_page": 6,
+    "total": 29
+  },
+  "links": {
+    "next_page_url": "http:\/\/isofaria.local\/api\/v1\/home?page=2",
+    "prev_page_url": null
+  }
+}

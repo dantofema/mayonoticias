@@ -1,0 +1,108 @@
+{
+  "categories": [
+    {
+      "id": 2,
+      "name": "Deportes",
+      "slug": "deportes"
+    },
+    {
+      "id": 1,
+      "name": "Política",
+      "slug": "politica"
+    },
+    {
+      "id": 3,
+      "name": "Tecnología",
+      "slug": "tecnologia"
+    }
+  ],
+  "seo": {
+    "title": "Home",
+    "description": "Welcome to our blog",
+    "keywords": "blog, laravel, php"
+  },
+  "post": {
+    "id": 23,
+    "title": "Veritatis assumenda vitae explicabo.",
+    "published_at": "02-10-2024",
+    "slug": "magni-aut-dolorem-sunt-ipsam-atque-id",
+    "status": "publish",
+    "image": "http:\/\/isofaria.local\/storage\/3295c621ba78afa1bc13544012a4900e.jpg",
+    "user": {
+      "id": 25,
+      "client_id": null,
+      "name": "Sergio Irizarry",
+      "email": "alcantar.alberto@example.org",
+      "email_verified_at": "2024-10-03T00:04:25.000000Z",
+      "created_at": "2024-10-03T00:04:25.000000Z",
+      "updated_at": "2024-10-03T00:04:25.000000Z",
+      "deleted_at": null
+    },
+    "category": {
+      "id": 2,
+      "name": "Deportes",
+      "client_id": 1,
+      "slug": "deportes",
+      "description": "Atque minima fugit esse consequatur ipsum quisquam ab. Praesentium nemo autem ea omnis ab est nihil. Et et deserunt impedit neque minima.",
+      "created_at": "2024-10-03T00:03:40.000000Z",
+      "updated_at": "2024-10-03T00:03:40.000000Z"
+    },
+    "tags": [
+      {
+        "id": 5,
+        "name": "Damien Corkery",
+        "slug": "labore-qui-id-dolor-odit-fuga-dolores",
+        "order": null,
+        "type": null,
+        "client_id": 1,
+        "created_at": "2024-10-03T00:03:31.000000Z",
+        "updated_at": "2024-10-03T00:03:31.000000Z",
+        "pivot": {
+          "post_id": 23,
+          "tag_id": 5
+        }
+      },
+      {
+        "id": 1,
+        "name": "Dr. Parker Fay Jr.",
+        "slug": "libero-adipisci-est-voluptas-magnam-dicta",
+        "order": null,
+        "type": null,
+        "client_id": 1,
+        "created_at": "2024-10-03T00:03:31.000000Z",
+        "updated_at": "2024-10-03T00:03:31.000000Z",
+        "pivot": {
+          "post_id": 23,
+          "tag_id": 1
+        }
+      },
+      {
+        "id": 2,
+        "name": "Jody Murray",
+        "slug": "nesciunt-ea-autem-cum-provident-recusandae-consequatur-voluptatibus",
+        "order": null,
+        "type": null,
+        "client_id": 1,
+        "created_at": "2024-10-03T00:03:31.000000Z",
+        "updated_at": "2024-10-03T00:03:31.000000Z",
+        "pivot": {
+          "post_id": 23,
+          "tag_id": 2
+        }
+      }
+    ],
+    "author": {
+      "id": 2,
+      "name": "Dr. Sylvia Terry Jr.",
+      "slug": "id-tempora-eveniet-voluptatem-sint-alias-voluptatem",
+      "client_id": 1,
+      "email": "idella76@example.net",
+      "bio": "Repudiandae autem sit sapiente culpa. Ea et sint animi. Itaque et quam quia temporibus perspiciatis. Et et est voluptatum ut dolorem nobis nesciunt recusandae.",
+      "image": "3108969a9555124344c3dea0e85a43c5.jpg",
+      "created_at": "2024-10-03T00:03:40.000000Z",
+      "updated_at": "2024-10-03T00:03:40.000000Z"
+    },
+    "created_at": "03-10-2024",
+    "content": "Esse architecto omnis velit animi similique neque. Voluptatem natus est est assumenda velit doloremque non. Praesentium nihil praesentium aliquid unde aut similique provident.\n\nAut dolor mollitia et natus ut quisquam rerum quis. Et iste magnam esse non. Iure saepe facilis ea perferendis laudantium autem dolorem est. Non porro quis et et accusamus.\n\nVoluptatem et voluptate omnis. Quasi quo consequatur culpa molestiae. Magni occaecati consequatur illo consequuntur dolores consequuntur."
+  }
+}

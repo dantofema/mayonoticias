@@ -17,14 +17,15 @@
             <p class="mt-5 text-gray-600 text-xs">
                 @if($post->author)
                     Por
-                    <a href="{{ route('author.posts', $post->author->slug) }}"
+                    <a href="{{ route('posts', ['autor'=>$post->author->slug]) }}"
                        class="text-xs text-indigo-600 transition duration-500 ease-in-out">
                         {{ $post->author->name }}
                     </a>
                 @endif
-                | En <a href="{{ route('category.posts', $post->category->slug)
-                 }}"
-                        class="text-xs text-indigo-600 transition duration-500 ease-in-out">
+                | En <a href="{{ route('posts',
+                ['categoria'=>$post->category->slug]) }}"
+                        class="text-xs text-indigo-600 transition duration-500
+                    ease-in-out">
                     {{ $post->category->name }}
                 </a>
             </p>

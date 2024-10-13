@@ -3,32 +3,19 @@
 namespace App\Livewire;
 
 use Exception;
-use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
 use Livewire\Component;
 use Log;
 
-class Home extends Component
+class Posts extends Component
 {
     /**
-     * @throws ConnectionException
      * @throws Exception
      */
     public function render(): View
     {
-        $data = $this->getData();
-        return view('livewire.home', $data)
-            ->layout('components.layouts.app', $data);
-
-    }
-
-    /**
-     * @throws Exception
-     */
-    private function getData(): array
-    {
-        $data = match (config('app.env')) {
+        $apiData = match (config('app.env')) {
             'local' => $this->localData(),
             'production' => $this->productionData(),
             default => null,
@@ -36,16 +23,21 @@ class Home extends Component
 
 //        $data = $this->productionData();
 
-        return [
+        $data = [
             'companyName' => 'Mayo Noticias',
             'companyLogo' => 'https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600',
             'loginLink' => '#',
             'navLinks' => $this->navLinks(),
-            'featuredPosts' => $data['posts'],
-            'posts' => $data['posts'],
+            'featuredPosts' => $apiData['posts'],
+            'posts' => $apiData['posts'],
 
         ];
+
+        return view('livewire.posts', $data)
+            ->layout('components.layouts.app', $data);
+
     }
+
 
     private function localData(): array
     {
@@ -71,7 +63,7 @@ class Home extends Component
         }
 
         $http = Http::withToken($token)
-            ->get(config('services.isofaria.url').'/api/v1/home');
+            ->get(config('services.isofaria.url').'/api/v1/posts');
 
         if ($http->failed()) {
             Log::error('Body --> '.$http->body());
@@ -86,31 +78,30 @@ class Home extends Component
         return [
             [
                 'name' => 'Inicio',
-                'href' => '#',
+                'href' => route('home'),
                 'current' => true, 'slug' => '#',
             ],
             [
                 'name' => 'Política',
-                'href' => '#',
+                'href' => route('posts', ['categoria' => 'politica']),
                 'current' => false,
             ],
             [
                 'name' => 'Economía',
-                'href' => '#',
+                'href' => route('posts', ['categoria' => 'economia']),
                 'current' => false,
             ],
             [
                 'name' => 'Educación',
-                'href' => '#',
+                'href' => route('posts', ['categoria' => 'educacion']),
+
                 'current' => false,
             ],
             [
                 'name' => 'Contacto',
-                'href' => '#',
+                'href' => route('contact'),
                 'current' => false,
             ],
         ];
     }
-
-
 }
