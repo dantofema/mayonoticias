@@ -1,12 +1,12 @@
 <div>
     <div class="grid grid-cols-1 lg:grid-cols-2">
         <div class="">
-            <livewire:card-header-home :post="$posts[0]"
-                                       :key="$posts[0]['id']"/>
+            <livewire:card-header-home :post="$featuredPosts[0]"
+                                       :key="$featuredPosts[0]['id']"/>
         </div>
         <div class="">
-            <livewire:card-header-home :post="$posts[1]"
-                                       :key="$posts[1]['id']"/>
+            <livewire:card-header-home :post="$featuredPosts[1]"
+                                       :key="$featuredPosts[1]['id']"/>
         </div>
 
     </div>
@@ -14,25 +14,25 @@
     <div class="bg-primary">
         <div class="px-6 py-24 sm:px-6 sm:py-10 lg:px-8">
             <div class="mx-auto max-w-2xl text-center">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-100
+                <h2 class="text-3xl font-bold tracking-tight text-base-100
                 sm:text-4xl">
                     Formá parte del debate</h2>
                 <p class="mx-auto mt-6 max-w-xl text-lg leading-8
-                text-gray-200">
+                text-base-200">
                     Leé las opiniones más destacadas sobre la actualidad
                     argentina y analizá los temas que marcan el rumbo del
                     país.</p>
                 <div class="mt-10 flex items-center justify-center gap-x-6">
                     <a href="#"
                        class="rounded-md bg-accent px-3.5 py-2.5 text-sm
-                       font-semibold text-white shadow-sm hover:bg-indigo-500
+                       font-semibold text-white shadow-sm hover:bg-primary
                         focus-visible:outline focus-visible:outline-2
                         focus-visible:outline-offset-2
-                        focus-visible:outline-indigo-600">Ir a la
+                        focus-visible:outline-primary">Ir a la
                         sección política</a>
                     <a href="#"
                        class="text-sm font-semibold leading-6
-                       text-gray-100">Leer
+                       text-base-300">Leer
                         Opiniones <span aria-hidden="true">→</span></a>
                 </div>
             </div>
@@ -77,22 +77,24 @@
         </div>
         <div class="relative mx-auto max-w-7xl py-24 sm:py-32 lg:px-8 lg:py-40">
             <div class="pl-6 pr-6 md:ml-auto md:w-2/3 md:pl-16 lg:w-1/2 lg:pl-24 lg:pr-0 xl:pl-32">
-                <h2 class="text-base font-semibold leading-7 text-indigo-400">
+                <h2 class="text-base font-semibold leading-7 text-primary">
                     ¿Te apasiona la política y tenés algo que decir?</h2>
                 <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                     Estamos aquí para informar</p>
-                <p class="mt-6 text-base leading-7 text-gray-300">Sumate a
+                <p class="mt-6 text-base leading-7 text-base-300">Sumate a
                     nuestro equipo de reporteros y compartí tu visión sobre la
                     actualidad argentina.
                     Escribí con nosotros y hacé que tu voz llegue más lejos.</p>
                 <div class="mt-8">
                     <a href="#"
-                       class="inline-flex rounded-md bg-white/10 px-3.5 py-2
+                       class="inline-flex rounded-md bg-accent px-3.5 py-2
                        .5 text-sm font-semibold text-white shadow-sm
                        hover:bg-white/20 focus-visible:outline
                        focus-visible:outline-2 focus-visible:outline-offset-2
-                        focus-visible:outline-white">Ponete en contacto y
-                        sumate</a>
+                        focus-visible:outline-white">
+                        Ponete en contacto y
+                        sumate
+                    </a>
                 </div>
             </div>
         </div>

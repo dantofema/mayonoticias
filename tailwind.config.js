@@ -14,10 +14,27 @@ export default {
     },
     plugins: [
         require("@tailwindcss/typography"),
+        require("@tailwindcss/line-clamp"),
         require("daisyui")
     ],
     daisyui: {
-        themes: ["light", "dark", "cupcake"],
+        themes: [
+            // {
+            //     "mayo-theme": {
+            //         "primary": "#FF0000",
+            //         "secondary": "#FF0000",
+            //         "accent": "#FF0000",
+            //         "neutral": "#FF0000",
+            //         "base-100": "#FF0000",
+            //         "base-200": "#FF0000",
+            //         "base-300": "#FF0000",
+            //     },
+            // },
+            "light",
+            "dark",
+            "cupcake",
+            "winter"
+        ],
     },
 }
 

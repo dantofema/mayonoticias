@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-class NavLinks
+class NavService
 {
 
     public function navLinks(): array
@@ -29,16 +29,26 @@ class NavLinks
 
                 'current' => false,
             ],
-            [
-                'name' => 'Contacto',
-                'href' => route('contact'),
-                'current' => false,
-            ],
+//            [
+//                'name' => 'Contacto',
+//                'href' => route('contact'),
+//                'current' => false,
+//            ],
         ];
     }
 
     public function loginLink(): string
     {
         return 'https://isofaria-demo.dantofema.ar/login';
+    }
+
+    public function logoLink(): string
+    {
+        return 'https://dantofema.ar/images/marca-dantofema-1.png';
+    }
+
+    public function companyName(): string
+    {
+        return 'Mayo Noticias';
     }
 }

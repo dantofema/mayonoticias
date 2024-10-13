@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Services\NavLinks;
+use App\Services\NavService;
 use Exception;
 use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
@@ -11,6 +11,7 @@ use Log;
 
 class Posts extends Component
 {
+
     /**
      * @throws Exception
      */
@@ -22,13 +23,14 @@ class Posts extends Component
             default => null,
         };
 
-        $links = new NavLinks();
+        $navService = new NavService();
+
         $data = [
             'title' => 'Mayo Noticias',
-            'companyName' => 'Mayo Noticias',
-            'companyLogo' => 'https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600',
-            'loginLink' => $links->loginLink(),
-            'navLinks' => $links->navLinks(),
+            'companyName' => $navService->companyName(),
+            'companyLogo' => $navService->logoLink(),
+            'loginLink' => $navService->loginLink(),
+            'navLinks' => $navService->navLinks(),
             'featuredPosts' => $apiData['posts'],
             'posts' => $apiData['posts'],
         ];
@@ -40,8 +42,8 @@ class Posts extends Component
 
     private function localData(): array
     {
-        return json_decode(file_get_contents(base_path('tests/fixtures/posts.json')),
-            true);
+        $json = file_get_contents(base_path('tests/fixtures/posts.json'));
+        return (array) json_decode($json);
     }
 
     private function productionData(): array
@@ -61,8 +63,13 @@ class Posts extends Component
             abort(403, 'Unauthorized');
         }
 
-        $http = Http::withToken($token)
-            ->get(config('services.isofaria.url').'/api/v1/posts');
+        if (request()->has('categoria')) {
+            $http = Http::withToken($token)
+                ->get(config('services.isofaria.url').'/api/v1/posts?categoria='.request('categoria'));
+        } else {
+            $http = Http::withToken($token)
+                ->get(config('services.isofaria.url').'/api/v1/posts');
+        }
 
         if ($http->failed()) {
             Log::error('Body --> '.$http->body());

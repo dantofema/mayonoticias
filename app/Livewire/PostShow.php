@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Services\NavLinks;
+use App\Services\NavService;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
@@ -28,7 +28,7 @@ class PostShow extends Component
             default => null,
         };
 
-        $links = new NavLinks();
+        $links = new NavService();
 
         $data = [
             'title' => $apiData['post']->title,

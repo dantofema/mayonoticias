@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Services\NavLinks;
+use App\Services\NavService;
 use Exception;
 use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
@@ -23,16 +23,19 @@ class Home extends Component
             default => null,
         };
 
-        $links = new NavLinks();
+        $navService = new NavService();
+
+        $featuredPosts = array_slice($apiData['posts'], 0, 2);
+        $posts = array_slice($apiData['posts'], 2, 3);
 
         $data = [
             'title' => 'Mayo Noticias',
-            'companyName' => 'Mayo Noticias',
-            'companyLogo' => 'https://dantofema.ar/images/marca-dantofema-1.png',
-            'loginLink' => $links->loginLink(),
-            'navLinks' => $links->navLinks(),
-            'featuredPosts' => $apiData['posts'],
-            'posts' => $apiData['posts'],
+            'companyName' => $navService->companyName(),
+            'companyLogo' => $navService->logoLink(),
+            'loginLink' => $navService->loginLink(),
+            'navLinks' => $navService->navLinks(),
+            'featuredPosts' => $featuredPosts,
+            'posts' => $posts,
         ];
 
         return view('livewire.home', $data)

@@ -10,22 +10,22 @@
         rounded">
             <a href="{{ route('post.show', $post->slug) }}"
                class="font-semibold text-lg inline-block
-               hover:text-indigo-600 transition duration-500 ease-in-out
+               hover:text-primary transition duration-500 ease-in-out
                mb-2">{{ $post->title }}</a>
-            <p class="text-gray-500 text-sm">
+            <p class="text-neutral text-sm">
                 {!! Str::limit($post->content) !!}
             </p>
-            <p class="mt-5 text-gray-600 text-xs">
+            <p class="mt-5 text-neutral text-xs">
                 @if($post->author)
                     Por
                     <a href="{{ route('posts', ['autor'=>$post->author->slug]) }}"
-                       class="text-xs text-indigo-600 transition duration-500 ease-in-out">
+                       class="text-xs text-primary transition duration-500 ease-in-out">
                         {{ $post->author->name }}
                     </a>
                 @endif
                 | En <a href="{{ route('posts',
                 ['categoria'=>$post->category->slug]) }}"
-                        class="text-xs text-indigo-600 transition duration-500
+                        class="text-xs text-primary transition duration-500
                     ease-in-out">
                     {{ $post->category->name }}
                 </a>
