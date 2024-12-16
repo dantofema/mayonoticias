@@ -9,7 +9,7 @@
     <title>{{ $title ?? 'Page Title' }}</title>
     @vite('resources/css/app.css')
 </head>
-<body>
+<body class="bg-slate-50">
 <livewire:top-nav
         :company-name="$companyName"
         :company-logo="$companyLogo"

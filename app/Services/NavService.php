@@ -29,22 +29,18 @@ class NavService
 
                 'current' => false,
             ],
-//            [
-//                'name' => 'Contacto',
-//                'href' => route('contact'),
-//                'current' => false,
-//            ],
+
         ];
     }
 
     public function loginLink(): string
     {
-        return 'https://isofaria-demo.dantofema.ar/login';
+        return 'https://isofaria.dantofema.ar/login';
     }
 
     public function logoLink(): string
     {
-        return 'https://dantofema.ar/images/marca-dantofema-1.png';
+        return asset('img/mayo-logo.jpg');
     }
 
     public function companyName(): string

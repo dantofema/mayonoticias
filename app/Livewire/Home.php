@@ -4,10 +4,11 @@ namespace App\Livewire;
 
 use App\Services\NavService;
 use Exception;
+use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use Livewire\Component;
-use Log;
 
 class Home extends Component
 {
@@ -17,16 +18,9 @@ class Home extends Component
      */
     public function render(): View
     {
-        $apiData = match (config('app.env')) {
-            'local' => $this->localData(),
-            'production' => $this->productionData(),
-            default => null,
-        };
+        $apiData = $this->getDataFromApi();
 
         $navService = new NavService();
-
-        $featuredPosts = array_slice($apiData['posts'], 0, 2);
-        $posts = array_slice($apiData['posts'], 2, 3);
 
         $data = [
             'title' => 'Mayo Noticias',
@@ -34,27 +28,24 @@ class Home extends Component
             'companyLogo' => $navService->logoLink(),
             'loginLink' => $navService->loginLink(),
             'navLinks' => $navService->navLinks(),
-            'featuredPosts' => $featuredPosts,
-            'posts' => $posts,
+            'featuredPosts' => array_slice($apiData['posts'], 0, 2),
+            'posts' => array_slice($apiData['posts'], 2, 3),
         ];
 
+        /** @noinspection PhpUndefinedMethodInspection */
         return view('livewire.home', $data)
             ->layout('components.layouts.app', $data);
 
     }
 
-
-    private function localData(): array
-    {
-        return json_decode(file_get_contents(base_path('tests/fixtures/posts.json')),
-            true);
-    }
-
-    private function productionData(): array
+    /**
+     * @throws ConnectionException
+     */
+    private function getDataFromApi(): array
     {
         $credentials = [
-            'email' => "demo@dantofema.ar",
-            'password' => "demo",
+            'email' => config('services.isofaria.user'),
+            'password' => config('services.isofaria.password'),
         ];
 
         $loginUrl = config('services.isofaria.url').'/api/login';

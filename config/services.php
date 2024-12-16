@@ -3,8 +3,8 @@
 return [
     'isofaria' => [
         'url' => env('ISOFARIA_URL'),
-        'token' => env('ISOFARIA_TOKEN'),
-        'demo' => env('ISOFARIA_DEMO'),
+        'user' => env('ISOFARIA_USER'),
+        'password' => env('ISOFARIA_PASSWORD'),
     ],
 
     /*

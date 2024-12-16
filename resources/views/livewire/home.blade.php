@@ -1,14 +1,22 @@
 <div>
     <div class="grid grid-cols-1 lg:grid-cols-2">
-        <div class="">
-            <livewire:card-header-home :post="$featuredPosts[0]"
-                                       :key="$featuredPosts[0]['id']"/>
-        </div>
-        <div class="">
-            <livewire:card-header-home :post="$featuredPosts[1]"
-                                       :key="$featuredPosts[1]['id']"/>
-        </div>
+        @if(!empty($featuredPosts))
 
+            @if(isset($featuredPosts[0]))
+                <div class="">
+                    <livewire:card-header-home :post="$featuredPosts[0]"
+                                               :key="$featuredPosts[0]['id']"/>
+                </div>
+            @endif
+
+            @if(isset($featuredPosts[1]))
+                <div class="">
+                    <livewire:card-header-home :post="$featuredPosts[1]"
+                                               :key="$featuredPosts[1]['id']"/>
+                </div>
+            @endif
+            
+        @endif
     </div>
 
     <div class="bg-primary">
