@@ -43,22 +43,8 @@ class Home extends Component
      */
     private function getDataFromApi(): array
     {
-        $credentials = [
-            'email' => config('services.isofaria.user'),
-            'password' => config('services.isofaria.password'),
-        ];
 
-        $loginUrl = config('services.isofaria.url').'/api/login';
-
-        $login = Http::post($loginUrl, $credentials);
-
-        if ($login->successful()) {
-            $token = $login->json()['access_token'];
-        } else {
-            abort(403, 'Unauthorized');
-        }
-
-        $http = Http::withToken($token)
+        $http = Http::withToken(config('services.isofaria.token'))
             ->get(config('services.isofaria.url').'/api/v1/home');
 
         if ($http->failed()) {

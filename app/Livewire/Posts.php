@@ -5,9 +5,9 @@ namespace App\Livewire;
 use App\Services\NavService;
 use Exception;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use Livewire\Component;
-use Log;
 
 class Posts extends Component
 {
@@ -49,26 +49,12 @@ class Posts extends Component
 
     private function productionData(): array
     {
-        $credentials = [
-            'email' => "demo@dantofema.ar",
-            'password' => "demo",
-        ];
-
-        $loginUrl = config('services.isofaria.url').'/api/login';
-
-        $login = Http::post($loginUrl, $credentials);
-
-        if ($login->successful()) {
-            $token = $login->json()['access_token'];
-        } else {
-            abort(403, 'Unauthorized');
-        }
 
         if (request()->has('categoria')) {
-            $http = Http::withToken($token)
+            $http = Http::withToken(config('services.isofaria.token'))
                 ->get(config('services.isofaria.url').'/api/v1/posts?categoria='.request('categoria'));
         } else {
-            $http = Http::withToken($token)
+            $http = Http::withToken(config('services.isofaria.token'))
                 ->get(config('services.isofaria.url').'/api/v1/posts');
         }
 

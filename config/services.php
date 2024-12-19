@@ -4,7 +4,7 @@ return [
     'isofaria' => [
         'url' => env('ISOFARIA_URL'),
         'user' => env('ISOFARIA_USER'),
-        'password' => env('ISOFARIA_PASSWORD'),
+        'token' => env('ISOFARIA_TOKEN'),
     ],
 
     /*

@@ -5,9 +5,8 @@ namespace App\Livewire;
 use App\Services\NavService;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
-use Log;
 
 class PostShow extends Component
 {
@@ -19,14 +18,14 @@ class PostShow extends Component
     }
 
 
-    public function render(): View
+    public function render()
     {
         $apiData = match (config('app.env')) {
             'local' => $this->localData(),
             'production' => $this->productionData(),
             default => null,
         };
-        
+
         $navService = new NavService();
 
         $post = json_decode(json_encode($apiData['post']));
@@ -54,33 +53,22 @@ class PostShow extends Component
 
     private function productionData(): array
     {
-        $credentials = [
-            'email' => "demo@dantofema.ar",
-            'password' => "demo",
-        ];
-
-        $loginUrl = config('services.isofaria.url').'/api/login';
-
-        $login = Http::post($loginUrl, $credentials);
-
-        if ($login->successful()) {
-            $token = $login->json()['access_token'];
-        } else {
-            abort(403, 'Unauthorized');
-        }
-
-        $endpoint = config('services.isofaria.url').'/api/v1/posts/'.$this->slug;
-
         try {
-            $http = Http::withToken($token)
+            $endpoint = config('services.isofaria.url').'/api/v1/posts/'.$this->slug;
+
+            $http = Http::withToken(config('services.isofaria.token'))
                 ->get($endpoint);
+
             return $http->json();
+
         } catch (ConnectionException $e) {
             $error = [
                 'url' => $endpoint,
                 'message' => $e->getMessage(),
             ];
+
             Log::error(json_encode($error));
+
             abort(500, 'Error');
         }
     }
