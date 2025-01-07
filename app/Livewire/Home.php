@@ -30,6 +30,7 @@ class Home extends Component
             'navLinks' => $navService->navLinks(),
             'featuredPosts' => array_slice($apiData['posts'], 0, 2),
             'posts' => array_slice($apiData['posts'], 2, 3),
+            'categories' => $apiData['categories'],
         ];
 
         /** @noinspection PhpUndefinedMethodInspection */

@@ -15,6 +15,7 @@
         :company-logo="$companyLogo"
         :nav-links="$navLinks"
         :login-link="$loginLink"
+        :categories="$categories"
 />
 
 {{ $slot }}

@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Services\NavService;
 use Exception;
+use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
@@ -17,13 +18,10 @@ class Posts extends Component
      */
     public function render(): View
     {
-        $apiData = match (config('app.env')) {
-            'local' => $this->localData(),
-            'production' => $this->productionData(),
-            default => null,
-        };
+        $apiData = $this->getDataFromApi();
 
         $navService = new NavService();
+
         $posts = json_decode(json_encode($apiData['posts']));
 
         $data = [
@@ -34,20 +32,19 @@ class Posts extends Component
             'navLinks' => $navService->navLinks(),
             'featuredPosts' => $posts,
             'posts' => $posts,
+            'categories' => $apiData['categories'],
         ];
 
+        /** @noinspection PhpUndefinedMethodInspection */
         return view('livewire.posts', $data)
             ->layout('components.layouts.app', $data);
 
     }
 
-    private function localData(): array
-    {
-        $json = file_get_contents(base_path('tests/fixtures/posts.json'));
-        return (array) json_decode($json);
-    }
-
-    private function productionData(): array
+    /**
+     * @throws ConnectionException
+     */
+    private function getDataFromApi(): array
     {
 
         if (request()->has('categoria')) {
@@ -65,5 +62,6 @@ class Posts extends Component
 
         return $http->json();
     }
+
 
 }

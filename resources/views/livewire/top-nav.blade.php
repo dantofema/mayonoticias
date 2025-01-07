@@ -4,7 +4,7 @@
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
          aria-label="Global">
         <div class="flex lg:flex-1">
-            <a href="{{ $navLinks[0]['href'] }}"
+            <a href="{{ $categories[0]['href'] }}"
                class="-m-1.5 p-1.5">
                 <span class="sr-only">{{ $companyName }}</span>
                 <img class="h-16 w-auto"
@@ -37,11 +37,11 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            @foreach($navLinks as $navLink)
-                <a href="{{ $navLink['href'] }}"
+            @foreach($categories as $category)
+                <a href="{{ $category['href'] }}"
                    class="text-sm font-semibold leading-6 text-base-600
                    hover:text-primary">{{
-                   $navLink['name'] }}</a>
+                   $category['name'] }}</a>
             @endforeach
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -92,12 +92,12 @@
             <div class="mt-6 flow-root">
                 <div class="-my-6 divide-y divide-neutral/10">
                     <div class="space-y-2 py-6">
-                        @foreach($navLinks as $navLink)
-                            <a href="{{ $navLink['href'] }}"
+                        @foreach($categories as $category)
+                            <a href="{{ $category['href'] }}"
                                class="-mx-3 block rounded-lg px-3 py-2
                                text-base font-semibold leading-7
                                text-neutral hover:bg-gray-50">{{
-                               $navLink['name'] }}</a>
+                               $category['name'] }}</a>
                         @endforeach
                     </div>
                     <div class="py-6">

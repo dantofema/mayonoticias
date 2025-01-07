@@ -10,7 +10,7 @@ use Livewire\Component;
 
 class PostShow extends Component
 {
-    private string $slug;
+    public string $slug;
 
     public function mount(string $slug): void
     {
@@ -18,13 +18,13 @@ class PostShow extends Component
     }
 
 
+    /**
+     * @throws ConnectionException
+     */
     public function render()
     {
-        $apiData = match (config('app.env')) {
-            'local' => $this->localData(),
-            'production' => $this->productionData(),
-            default => null,
-        };
+
+        $apiData = $this->getDataFromApi();
 
         $navService = new NavService();
 
@@ -37,6 +37,7 @@ class PostShow extends Component
             'loginLink' => $navService->loginLink(),
             'navLinks' => $navService->navLinks(),
             'post' => $post,
+            'categories' => $apiData['categories'],
         ];
 
         return view('livewire.post-show', $data)
@@ -45,31 +46,19 @@ class PostShow extends Component
     }
 
 
-    private function localData(): array
+    private function getDataFromApi(): array
     {
-        $jsonObject = file_get_contents(base_path('tests/fixtures/post.json'));
-        return (array) json_decode($jsonObject);
-    }
+        $endpoint = config('services.isofaria.url').'/api/v1/posts/'.$this->slug;
+        $http = Http::withToken(config('services.isofaria.token'))
+            ->get($endpoint);
 
-    private function productionData(): array
-    {
-        try {
-            $endpoint = config('services.isofaria.url').'/api/v1/posts/'.$this->slug;
-
-            $http = Http::withToken(config('services.isofaria.token'))
-                ->get($endpoint);
-
-            return $http->json();
-
-        } catch (ConnectionException $e) {
-            $error = [
-                'url' => $endpoint,
-                'message' => $e->getMessage(),
-            ];
-
-            Log::error(json_encode($error));
-
+        if ($http->failed()) {
+            Log::error('Body --> '.$http->body());
             abort(500, 'Error');
         }
+
+        return $http->json();
     }
+
+
 }
