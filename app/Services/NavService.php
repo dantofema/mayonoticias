@@ -35,7 +35,7 @@ class NavService
 
     public function loginLink(): string
     {
-        return 'https://isofaria.dantofema.ar/login';
+        return 'https://isofaria.dantofema.ar/admin/login';
     }
 
     public function logoLink(): string
